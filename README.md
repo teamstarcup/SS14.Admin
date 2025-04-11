@@ -47,6 +47,7 @@ Auth:
     Authority: "https://central.spacestation14.io/web/"
     ClientId: "9e2ce26f-28ba-4232-b4d9-8cc08993b33e"
     ClientSecret: "foobar"
+    RedirectUri: "https://central.spacestation14.io/admin/signin-oidc
 
 authServer: "https://central.spacestation14.io/auth"
 ```
