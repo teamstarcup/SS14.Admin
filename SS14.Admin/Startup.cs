@@ -75,6 +75,14 @@ namespace SS14.Admin
                         var handler = ctx.HttpContext.RequestServices.GetRequiredService<LoginHandler>();
                         await handler.HandleTokenValidated(ctx);
                     };
+
+                    if (Configuration["Auth:RedirectUri"] != null) {
+                        options.Events.OnRedirectToIdentityProvider = async ctx =>
+                        {
+                            ctx.ProtocolMessage.RedirectUri = Configuration["Auth:RedirectUri"];
+                            await Task.FromResult(0);
+                        };
+                    }
                 });
         }
 
